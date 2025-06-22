@@ -196,69 +196,6 @@ class Ghost(pygame.sprite.Sprite):
             else:
                 self.rect.x += int(self.speed * dx / dist)
                 self.rect.y += int(self.speed * dy / dist)
-# class Ghost(pygame.sprite.Sprite):
-#
-#     def __init__(self, x, y):
-#         super().__init__()
-#         self.image = pygame.Surface([GHOST_SIZE, GHOST_SIZE])
-#         self.image.fill(RED)
-#         self.rect = self.image.get_rect()
-#         self.rect.x = x
-#         self.rect.y = y
-#         self.initial_move_timer = 60
-#         self.direction = random.choice(['UP', 'DOWN', 'LEFT', 'RIGHT'])
-#         self.decision_cooldown = 0  # frames before changing direction again
-#
-#     def move(self, direction):
-#         if direction == 'UP':
-#             self.rect.y -= GHOST_SPEED
-#         elif direction == 'DOWN':
-#             self.rect.y += GHOST_SPEED
-#         elif direction == 'LEFT':
-#             self.rect.x -= GHOST_SPEED
-#         elif direction == 'RIGHT':
-#             self.rect.x += GHOST_SPEED
-#
-#     def update(self, walls, pacman):
-#         if self.initial_move_timer > 0:
-#             self.rect.y -= GHOST_SPEED
-#             self.initial_move_timer -= 1
-#             return
-#
-#         if self.decision_cooldown > 0:
-#             self.decision_cooldown -= 1
-#
-#         # Store current position before move
-#         old_pos = self.rect.topleft
-#         self.move(self.direction)
-#
-#         # Check for collision
-#         if pygame.sprite.spritecollideany(self, walls):
-#             self.rect.topleft = old_pos  # revert movement
-#
-#             if self.decision_cooldown == 0:
-#                 # Try all directions in random order
-#                 directions = ['UP', 'DOWN', 'LEFT', 'RIGHT']
-#                 random.shuffle(directions)
-#
-#                 for new_dir in directions:
-#                     test_rect = self.rect.copy()
-#                     if new_dir == 'UP':
-#                         test_rect.y -= GHOST_SPEED
-#                     elif new_dir == 'DOWN':
-#                         test_rect.y += GHOST_SPEED
-#                     elif new_dir == 'LEFT':
-#                         test_rect.x -= GHOST_SPEED
-#                     elif new_dir == 'RIGHT':
-#                         test_rect.x += GHOST_SPEED
-#
-#                     temp_sprite = pygame.sprite.Sprite()
-#                     temp_sprite.rect = test_rect
-#
-#                     if not pygame.sprite.spritecollideany(temp_sprite, walls):
-#                         self.direction = new_dir
-#                         self.decision_cooldown = 1  # wait before next decision
-#                         break
 # Maze layout
 mazes = [
     [
